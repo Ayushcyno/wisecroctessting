@@ -24,10 +24,10 @@ import {
 import prelogin from "../../../../public/Images/login/prelogin.png";
 const ActivitySidebar = () => {
   return (
-    <div className="bg-[#d6cafa] p-4 h-[full] 1024p:space-y-6 space-y-10 relative right-0 w-[370px]">
-
-      {/* Header Section */}
-      <div className="flex items-center gap-6">
+    <div className="bg-[#d6cafa] p-4 h-[full] relative right-0 w-[370px]">
+<div className=" h-full overflow-y-auto no-scrollbar 1024p:space-y-6 space-y-10  " >
+    {/* Header Section */}
+    <div className="flex items-center gap-6">
         <Avatar size={50} radius="xl" className="bg-white">
           <IconBellFilled size={25} color="#A990F5" />
         </Avatar>
@@ -158,6 +158,8 @@ const ActivitySidebar = () => {
           </div>
         </div>
       </Card>
+</div>
+  
     </div>
   );
 };
