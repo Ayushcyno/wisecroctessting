@@ -48,6 +48,13 @@ const NoticeBoardPage = () => {
       time: "6:00 PM - 8:00 PM",
       instructor: "Mr. Liam Johnson",
     },
+    {
+      id: 7,
+      name: "Music Concert",
+      date: "26 Sep",
+      time: "6:00 PM - 8:00 PM",
+      instructor: "Mr. Liam Johnson",
+    },
   ];
   return (
     <CommonLayout>

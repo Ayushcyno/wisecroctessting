@@ -1,3 +1,8 @@
+export const role = "student";
+
+
+
+
 export const dashboardCardsData = [
     {
       title: "Total Schools",

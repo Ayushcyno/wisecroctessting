@@ -10,8 +10,8 @@ const StatCard = ({ gifSrc, value, label, color }) => (
   
   const BookStatusBar = () => {
     return (
-      <div className="bg-gray-100 mt-4 rounded-2xl p-4">
-        <div className="flex flex-wrap gap-4 justify-center sm:justify-start">
+      <div className="bg-gray-100 mt-4 rounded-2xl py-4">
+        <div className="flex flex-wrap gap-4  sm:justify-start    1024p:justify-between">
           <StatCard gifSrc="../Images/student/dashboard/star.gif" value="2000" label="Total Coins" color="" />
           <StatCard gifSrc="../Images/student/dashboard/book.gif" value="20" label="Total Books" color="" />
           <StatCard gifSrc="../Images/student/dashboard/learning.gif" value="20" label="Read Books" color="" />

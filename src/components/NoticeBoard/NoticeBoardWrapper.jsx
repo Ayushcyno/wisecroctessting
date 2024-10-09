@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Text, Menu, Button, ActionIcon, Switch } from "@mantine/core";
 import { IconDotsVertical } from "@tabler/icons-react";
+import { split } from "postcss/lib/list";
 
 // Event Card Component
 const EventCard = ({ event, studentNoticeBoardPage }) => (
@@ -91,22 +92,31 @@ function NoticeBoardWrapper({
       {/* Notice Board Section */}
       <div
         className={`${
-          studentDashboard === "studentDashboard"
-            ? "w-[790px]"
+          studentDashboard
+            ? " w-full  1024p:h-auto h-[280px]"
             : studentNoticeBoardPage === "studentNoticeBoardPage"
-            ? "w-[790px] h-[648px] bg-white rounded-3xl"
-            : "w-[1131px] h-[280px] mx-auto"
-        } bg-mainColor p-4 rounded-xl`}
+            ? "  w-full 1024p:h-auto h-[648px] bg-white rounded-3xl"
+            : " w-full  1024p:h-auto h-[280px] mx-auto"
+        } p-4 rounded-xl relative`}
+        style={
+          !studentNoticeBoardPage
+            ? {
+                backgroundImage: `url('/Images/dashboard/bg.png')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }
+            : {}
+        }
       >
-        <div className="flex justify-between items-center mb-2">
+        <div className="flex justify-between items-center ">
           <Text
             className={`font-bold font-Switzer tracking-tight ${
-              studentNoticeBoardPage ? "text-2xl" : "text-sm text-white"
+              studentNoticeBoardPage ? "text-2xl" : "text-base text-white"
             }`}
           >
             {studentNoticeBoardPage ? (
               <span className="text-[#303030] text-2xl font-bold font-Switzer tracking-tight">
-                {" "}
                 Notice
               </span>
             ) : (
@@ -115,16 +125,16 @@ function NoticeBoardWrapper({
           </Text>
         </div>
 
-        <div className="flex justify-between">
+        <div className="flex w-[81%] items-center h-full ">
           {/* Events Grid */}
           <div
             className={
-              studentNoticeBoardPage
-                ? "w-[790px] grid grid-cols-2 gap-3 place-content-center"
+              studentDashboard
+                ? "w-full h-[210px] gap-3 grid md:grid-cols-2 overflow-y-auto no-scrollbar"
                 : "grid grid-cols-2 gap-3 place-content-center w-[62%]"
             }
           >
-            {events.map((event) => (
+            {events.slice(0, 7).map((event, index) => (
               <EventCard
                 key={event.id}
                 event={event}
@@ -132,23 +142,45 @@ function NoticeBoardWrapper({
               />
             ))}
           </div>
-
-          {/* SVG Image */}
-          {!studentNoticeBoardPage && (
-            <div className="relative right-[15%] flex">
-              <img
-                src="../Images/teacher/dashboard/human.svg"
-                alt="human icon"
-                className="w-20 h-30"
-              />
-            </div>
-          )}
         </div>
 
         {/* View All Button */}
         {!studentNoticeBoardPage && (
-          <div className="mt-4 text-right">
-            <Button variant="light" color="grape" size="xs">
+          <div className="mt-4 text-right absolute bottom-5 right-5 ">
+            {/* <Button variant="light" color="grape" size="xs">
+              View All
+            </Button> */}
+            <Button
+              color="grape"
+              className="bg-[#A990F5] text-white border-[#A990F5]"
+              leftSection={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                >
+                  <path
+                    d="M12 1H4C3.20463 1.0009 2.44209 1.31726 1.87967 1.87967C1.31726 2.44209 1.0009 3.20463 1 4V12C1.0009 12.7954 1.31726 13.5579 1.87967 14.1203C2.44209 14.6827 3.20463 14.9991 4 15H12C12.7954 14.9991 13.5579 14.6827 14.1203 14.1203C14.6827 13.5579 14.9991 12.7954 15 12V4C14.9991 3.20463 14.6827 2.44209 14.1203 1.87967C13.5579 1.31726 12.7954 1.0009 12 1ZM13 12C12.9995 12.2651 12.8939 12.5191 12.7065 12.7065C12.5191 12.8939 12.2651 12.9995 12 13H4C3.73495 12.9995 3.4809 12.8939 3.29348 12.7065C3.10606 12.5191 3.00053 12.2651 3 12V4C3.00053 3.73495 3.10606 3.4809 3.29348 3.29348C3.4809 3.10606 3.73495 3.00053 4 3H12C12.2651 3.00053 12.5191 3.10606 12.7065 3.29348C12.8939 3.4809 12.9995 3.73495 13 4V12Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M28 1H20C19.2046 1.0009 18.4421 1.31726 17.8797 1.87967C17.3173 2.44209 17.0009 3.20463 17 4V12C17.0009 12.7954 17.3173 13.5579 17.8797 14.1203C18.4421 14.6827 19.2046 14.9991 20 15H28C28.7954 14.9991 29.5579 14.6827 30.1203 14.1203C30.6827 13.5579 30.9991 12.7954 31 12V4C30.9991 3.20463 30.6827 2.44209 30.1203 1.87967C29.5579 1.31726 28.7954 1.0009 28 1ZM29 12C28.9995 12.2651 28.8939 12.5191 28.7065 12.7065C28.5191 12.8939 28.2651 12.9995 28 13H20C19.7349 12.9995 19.4809 12.8939 19.2935 12.7065C19.1061 12.5191 19.0005 12.2651 19 12V4C19.0005 3.73495 19.1061 3.4809 19.2935 3.29348C19.4809 3.10606 19.7349 3.00053 20 3H28C28.2651 3.00053 28.5191 3.10606 28.7065 3.29348C28.8939 3.4809 28.9995 3.73495 29 4V12Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M12 17H4C3.20463 17.0009 2.44209 17.3173 1.87967 17.8797C1.31726 18.4421 1.0009 19.2046 1 20V28C1.0009 28.7954 1.31726 29.5579 1.87967 30.1203C2.44209 30.6827 3.20463 30.9991 4 31H12C12.7954 30.9991 13.5579 30.6827 14.1203 30.1203C14.6827 29.5579 14.9991 28.7954 15 28V20C14.9991 19.2046 14.6827 18.4421 14.1203 17.8797C13.5579 17.3173 12.7954 17.0009 12 17ZM13 28C12.9995 28.2651 12.8939 28.5191 12.7065 28.7065C12.5191 28.8939 12.2651 28.9995 12 29H4C3.73495 28.9995 3.4809 28.8939 3.29348 28.7065C3.10606 28.5191 3.00053 28.2651 3 28V20C3.00053 19.7349 3.10606 19.4809 3.29348 19.2935C3.4809 19.1061 3.73495 19.0005 4 19H12C12.2651 19.0005 12.5191 19.1061 12.7065 19.2935C12.8939 19.4809 12.9995 19.7349 13 20V28Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M27.8802 26.4657C28.7592 25.2322 29.1425 23.7133 28.9541 22.2104C28.7658 20.7075 28.0194 19.3302 26.8632 18.3518C25.7069 17.3734 24.2252 16.8652 22.7118 16.9281C21.1984 16.9909 19.7639 17.6202 18.6928 18.6912C17.6217 19.7622 16.9922 21.1966 16.9291 22.71C16.866 24.2233 17.374 25.7052 18.3522 26.8616C19.3305 28.0179 20.7077 28.7645 22.2106 28.9531C23.7135 29.1417 25.2323 28.7586 26.466 27.8797L29.293 30.7069C29.4816 30.8891 29.7342 30.9899 29.9964 30.9876C30.2586 30.9853 30.5094 30.8802 30.6948 30.6948C30.8802 30.5094 30.9854 30.2585 30.9877 29.9963C30.99 29.7341 30.8892 29.4815 30.707 29.2929L27.8802 26.4657ZM19.0002 22.9999C19.0002 22.2088 19.2348 21.4355 19.6743 20.7777C20.1139 20.1199 20.7386 19.6072 21.4695 19.3044C22.2004 19.0017 23.0047 18.9225 23.7806 19.0768C24.5565 19.2311 25.2692 19.6121 25.8286 20.1715C26.3881 20.7309 26.769 21.4437 26.9234 22.2196C27.0777 22.9955 26.9985 23.7998 26.6957 24.5307C26.393 25.2616 25.8803 25.8863 25.2225 26.3258C24.5647 26.7653 23.7913 26.9999 23.0002 26.9999C21.9398 26.9985 20.9232 26.5766 20.1734 25.8268C19.4235 25.077 19.0017 24.0604 19.0002 22.9999Z"
+                    fill="white"
+                  />
+                </svg>
+              }
+              variant="default"
+            >
               View All
             </Button>
           </div>

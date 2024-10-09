@@ -4,7 +4,7 @@ import { FaPlay } from "react-icons/fa";
 
 const EventCard = ({ eventData = [] }) => {
   return (
-    <div className="w-[790px] h-auto bg-white rounded-3xl">
+    <div className="h-auto bg-white rounded-3xl">
       {/* Events eligible for you Section */}
       <div>
         <h2 className="text-[#303030] text-2xl font-bold font-Switzer tracking-tight  p-4">

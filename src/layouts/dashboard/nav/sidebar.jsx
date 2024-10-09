@@ -2,9 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { IconX } from "@tabler/icons-react";
 import { studentSidebar, teacherSidebar } from "./sidebarItems";
+import { role } from "../../../lib/utils";
 
 const SideBarItems = ({ open, onClose }) => {
-  let role = "teacher"; // Replace with dynamic role as needed
+  // let role = "teacher"; // Replace with dynamic role as needed
 
   return (
     <div
@@ -33,7 +34,7 @@ const SideBarItems = ({ open, onClose }) => {
       </div>
 
       <nav className="mt-10">
-        {role === "teacher"
+        {role == "teacher"
           ? teacherSidebar.map((item, index) => (
               <NavLink
                 key={index}

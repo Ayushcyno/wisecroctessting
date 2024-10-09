@@ -9,7 +9,7 @@ export default {
     extend: {
       screens: {
         "786p": "1366px",
-        "1024p": "1440px",
+        "1024p": "1441px",
         "1189p":"1440px",
         '2xl': '1536px',  
         '4k': '2560px', 

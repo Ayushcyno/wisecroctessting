@@ -10,12 +10,15 @@ import LibraryPage from "../app/student/pages/librarypage";
 import AssignmentPage from "../app/student/pages/assignmentpage";
 import StudentNoticeBoardPage from "../app/student/pages/studentnoticeboardpage";
 import EventPage from "../app/student/pages/eventpage";
+import { role } from "../lib/utils";
+import PreLogin from "../components/login/preLogin";
 
 const CustomRouter = () => {
-  let role = "teacher";
+  // let role = "teacher";
   return (
     <Routes>
       <Route path="/" element={<Login />} />
+      <Route path="/pre" element={<PreLogin />} />
 
       {/* Dashboard layout with nested routes */}
       <Route path="/dashboard" element={<PublicLayout />}>

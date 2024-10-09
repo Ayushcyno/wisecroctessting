@@ -27,7 +27,7 @@ const AssignmentPage = () => {
       <div className="bg-themeGray w-full my-2 h-[calc(100vh-64px)] overflow-y-scroll p-6">
         <BookStatusBar />
 
-        <div className="1024p:w-[790px] max-w-4xl bg-white rounded-3xl mt-4 p-4">
+        <div className="w-full  bg-white rounded-3xl mt-4 p-4">
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-2xl font-bold">English</h1>
             <div className="relative">
