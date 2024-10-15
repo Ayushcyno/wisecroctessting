@@ -3,6 +3,11 @@ import { Card, Text, Menu, Button, ActionIcon, Switch } from "@mantine/core";
 import { IconDotsVertical } from "@tabler/icons-react";
 import { split } from "postcss/lib/list";
 
+import Studentdetail from "../popup/studentdetail";
+import BookIssue from "../popup/bookIssue";
+import CreateAssignment from "../popup/createAssignment";
+import UploadFile from "../popup/uploadFile";
+
 // Event Card Component
 const EventCard = ({ event, studentNoticeBoardPage }) => (
   <Card
@@ -183,6 +188,7 @@ function NoticeBoardWrapper({
             >
               View All
             </Button>
+            <UploadFile />
           </div>
         )}
       </div>

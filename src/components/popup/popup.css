@@ -1,0 +1,93 @@
+.light-popup .m_9814e45f{
+   
+    background: linear-gradient(116deg, rgba(239, 239, 239, 0.60) 10.92%, rgba(255, 255, 255, 0.08) 96.4%) !important;
+    backdrop-filter: blur(38.07310485839844px) !important;
+}
+.light-popup .mantine-Modal-content{
+    width: 700px !important;
+    height: auto;
+    flex-shrink: 0;
+    border-radius: 40px !important;
+background: #FFF !important;
+box-shadow: 0px 4px 35px 0px rgba(0, 0, 0, 0.08) !important;
+}
+.cancel-btn{
+    border-radius: 10px;
+background: #C0C2CA;
+box-shadow: 0px 4px 19px 0px #C0C2CA;
+}
+.action-btn{
+    border-radius: 10px;
+background: var(--Error, #FD7693);
+box-shadow: 0px 4px 19px 0px #FD7693;
+color:white;
+}
+.action-btn-blue{
+    color:white;
+    border-radius: 10px;
+    background: #A990F5;
+    box-shadow: 0px 4px 19px 0px rgba(169, 144, 245, 0.30);
+}
+
+
+
+
+/* Date picker container */
+.mantine-DatePicker {
+    width: 100%; /* Adjust width as needed */
+    margin: 0 auto; /* Center the date picker if required */
+  }
+  
+  /* Date picker header */
+  .mantine-DatePicker-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f1f1f1; /* Background for the header */
+    border-bottom: 1px solid #ccc; /* Optional bottom border */
+  }
+  
+  /* Arrow icons */
+  .mantine-DatePicker-chevron {
+    font-size: 20px;
+    color: #333; /* Color of the arrow */
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .mantine-DatePicker-chevron:hover {
+    color: #000; /* Change color on hover */
+  }
+  
+  /* Calendar grid */
+  .mantine-DatePicker-calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columns for each day */
+    gap: 5px;
+    padding: 10px;
+  }
+  
+  /* Weekday names */
+  .mantine-DatePicker-weekdays {
+    font-weight: bold;
+    color: #333; /* Color for the weekday names */
+    padding: 5px 0;
+  }
+  
+  /* Days */
+  .mantine-DatePicker-day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%; /* Circular day cells */
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  /* Hover and selected styles for days */
+  .mantine-DatePicker-day:hover {
+
+  }
+  
+ 
