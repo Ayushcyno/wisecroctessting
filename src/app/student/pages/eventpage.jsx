@@ -37,7 +37,7 @@ const EventPage = () => {
 
   return (
     <CommonLayout color="gray" header="none">
-      <div className="bg-themeGray w-full my-2 h-[calc(100vh-64px)] overflow-y-scroll p-6">
+      <div className="bg-themeGray w-full my-2 h-[calc(100vh-64px)] overflow-y-scroll p-6 ">
         <BookStatusBar />
         <EventCard eventData={eventData} index={0} />
         <hr />

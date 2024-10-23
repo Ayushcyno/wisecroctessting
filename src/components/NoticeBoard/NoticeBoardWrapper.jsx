@@ -1,11 +1,7 @@
 import React from "react";
-import { Card, Text, Menu, Button, ActionIcon, Switch } from "@mantine/core";
-import { IconDotsVertical } from "@tabler/icons-react";
-import { split } from "postcss/lib/list";
+import { Card, Text, Menu, Button, ActionIcon, Switch, TextInput } from "@mantine/core";
+import { IconChevronDown, IconDotsVertical, IconSearch } from "@tabler/icons-react";
 
-import Studentdetail from "../popup/studentdetail";
-import BookIssue from "../popup/bookIssue";
-import CreateAssignment from "../popup/createAssignment";
 import UploadFile from "../popup/uploadFile";
 
 // Event Card Component
@@ -100,7 +96,7 @@ function NoticeBoardWrapper({
           studentDashboard
             ? " w-full  1024p:h-auto h-[280px]"
             : studentNoticeBoardPage === "studentNoticeBoardPage"
-            ? "  w-full 1024p:h-auto h-[648px] bg-white rounded-3xl"
+            ? "  w-full  h-auto bg-white rounded-3xl"
             : " w-full  1024p:h-auto h-[280px] mx-auto"
         } p-4 rounded-xl relative`}
         style={
@@ -114,7 +110,7 @@ function NoticeBoardWrapper({
             : {}
         }
       >
-        <div className="flex justify-between items-center ">
+        <div className="flex justify-around items-center ">
           <Text
             className={`font-bold font-Switzer tracking-tight ${
               studentNoticeBoardPage ? "text-2xl" : "text-base text-white"
@@ -128,15 +124,53 @@ function NoticeBoardWrapper({
               "Notice Board"
             )}
           </Text>
+         {   studentNoticeBoardPage &&
+            <>
+            
+            <TextInput
+              placeholder="Search here..."
+              icon={<IconSearch size={18} />}
+              rightSection={<span className="text-gray-400">⌘ </span>}
+              classNames={{
+                input: 'rounded-full bg-gray-100 text-gray-600 px-4 py-2 focus:ring-2 focus:ring-blue-500',
+              }}
+            /> 
+            
+
+            <Menu shadow="md" >
+      <Menu.Target>
+        <Button
+          variant="outline"
+          rightIcon={<IconChevronDown size={16} />}
+          className="rounded-lg border-gray-300 text-gray-600 py-2 w-[150px]"
+        >
+          Filters
+        </Button>
+      </Menu.Target>
+
+      <Menu.Dropdown>
+        <Menu.Label>Filter by</Menu.Label>
+        <Menu.Item>Option 1</Menu.Item>
+        <Menu.Item>Option 2</Menu.Item>
+        <Menu.Item>Option 3</Menu.Item>
+        <Menu.Divider />
+        <Menu.Item color="red">Clear filters</Menu.Item>
+      </Menu.Dropdown>
+    </Menu>
+            </> 
+            
+}
+
         </div>
 
-        <div className="flex w-[81%] items-center h-full ">
-          {/* Events Grid */}
+        <div className={`flex ${studentNoticeBoardPage ? "w-full my-3": "w-[81%]"} items-center h-full `}>
+          {/* Events Grid */} 
           <div
             className={
               studentDashboard
                 ? "w-full h-[210px] gap-3 grid md:grid-cols-2 overflow-y-auto no-scrollbar"
-                : "grid grid-cols-2 gap-3 place-content-center w-[62%]"
+                : `grid grid-cols-2 gap-3 place-content-center ${
+              studentNoticeBoardPage ? "w-full space-y-4" : "w-[62%]" }`
             }
           >
             {events.slice(0, 7).map((event, index) => (

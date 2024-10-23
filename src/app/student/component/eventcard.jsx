@@ -24,7 +24,7 @@ const EventCard = ({ eventData = [] }) => {
 
                 {/* Overlay Container */}
                 <div className="w-[318px] h-[65px] bg-[#9caaed] rounded-2xl shadow flex justify-center items-center relative  bottom-[40px]">
-                  <div className="flex items-center w-full p-4">
+                  <div className="flex items-center w-full p-4 " >
                     <div className="flex-1">
                       {/* Event Name and Duration */}
                       <div className="text-white text-[17px] font-semibold font-Switzer leading-normal">
@@ -70,9 +70,9 @@ const EventCard = ({ eventData = [] }) => {
                 />
   
                 {/* Overlay Container */}
-                <div className="w-[318px] h-[65px] bg-[#9caaed] rounded-2xl shadow flex justify-center items-center relative  bottom-[40px]">
-                  <div className="flex items-center w-full p-4">
-                    <div className="flex-1">
+                <div className="w-[318px]  h-[65px] bg-[#9caaed] rounded-2xl shadow flex justify-center items-center relative  bottom-[40px]">
+                  <div className="flex items-center w-full p-4 ">
+                    <div className="flex-1  ">
                       {/* Event Name and Duration */}
                       <div className="text-white text-[17px] font-semibold font-Switzer leading-normal">
                         {event.eventName || "Event Name Here"}
